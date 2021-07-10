@@ -1,0 +1,12 @@
+$circleWidth: 300px;
+
+.progress-ring{
+  height: $circleWidth;
+  width: $circleWidth;
+
+  &__circle {
+    transition: 1s ease-out;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+  }
+}

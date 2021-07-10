@@ -1,26 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { Sidebar } from './components/Sidebar/Sidebar';
+import { Timer } from './components/Timer/'
+import TopAppBar from './components/TopAppBar/TopAppBar'
+import PersistentDrawerLeft from './components/PersistentDrawerLeft/PersistentDrawerLeft'
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+
+import HomePage from './pages/HomePage';
+import CalendarPage from './pages/CalendarPage';
+import TimerPage from './pages/TimerPage';
+import ExercisesPage from './pages/ExercisesPage';
+import SettingsPage from './pages/SettingsPage';
+import { WorkoutsPage } from './pages/WorkoutsPage';
+import { ThemeProvider } from '@material-ui/core';
+import { theme } from './theme';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <ThemeProvider theme={theme} >
+      <div className="App">
+        <PersistentDrawerLeft>
+        <Switch>
+          <Route exact path='/' component={HomePage} />
+          <Route  path='/calendar' component={CalendarPage} />
+          <Route  path='/timer' component={TimerPage} />
+          <Route  path='/workouts' component={WorkoutsPage} />
+          <Route  path='/exercises' component={ExercisesPage} />
+          <Route  path='/settings' component={SettingsPage} />
+        </Switch>
+        </PersistentDrawerLeft>
+      </div>
+      </ThemeProvider>
+    </Router>
   );
 }
 
 export default App;
+
