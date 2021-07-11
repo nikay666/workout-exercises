@@ -59,8 +59,6 @@ const drawerWidth = 240;
 
 const useStyles = makeStyles((theme: Theme) => 
   createStyles({
-    root: {
-    },
     drawer: {
       width: drawerWidth,
       flexShrink: 0,
@@ -71,7 +69,7 @@ const useStyles = makeStyles((theme: Theme) =>
     avatar: {
       margin: '5%',
       display: 'flex',
-      gap: '10px'
+      gap: theme.spacing(1)
     },
     badge: {
         backgroundColor:` ${theme.palette.success.light}`

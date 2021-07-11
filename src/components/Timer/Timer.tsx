@@ -60,11 +60,14 @@ const Timer = () => {
           onClick={pauseHandler}
           type="submit" 
           color="primary" 
+          disabled={time ? false : true}
         >{pause ? <PlayArrowIcon fontSize="large" /> : <PauseIcon fontSize="large" />}</Button>
         <Button 
+          
           onClick={stopHandler} 
           type="submit" 
           color="primary" 
+          disabled={time ? false : true}
          ><StopIcon fontSize="large" /></Button>
         </div>
        

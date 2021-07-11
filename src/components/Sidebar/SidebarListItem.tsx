@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon, List, ListItem, ListItemText } from '@material-ui/core';
+import { createStyles, Icon, List, ListItem, ListItemText, makeStyles, Theme } from '@material-ui/core';
 import { NavLink, NavLinkProps } from 'react-router-dom';
 import './sidebar.scss'
 
@@ -10,10 +10,19 @@ interface ISidebarListItemProps {
 
 }
 
+const useStyles = makeStyles((theme: Theme) => 
+  createStyles({
+    icon: {
+      marginRight: theme.spacing(1)
+    },
+  
+  })
+)
+
 
 
 export const SidebarListItem = ({title, link, icon}:ISidebarListItemProps) => {
-
+  const classes = useStyles()
   const renderLink = React.useMemo(
     () =>
       React.forwardRef<any, Omit<NavLinkProps, 'to'>>((itemProps, ref) => (
@@ -26,7 +35,7 @@ export const SidebarListItem = ({title, link, icon}:ISidebarListItemProps) => {
 
   return (
     <ListItem button component={renderLink}>
-      <Icon className="sidebar__icon" >{icon}</Icon>
+      <Icon  className={classes.icon} >{icon}</Icon>
       <ListItemText primary={title} />
     </ListItem>
   )

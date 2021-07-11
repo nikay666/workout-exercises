@@ -4,6 +4,8 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import { AppBarTop } from '../AppBarTop/AppBarTop';
 import { Sidebar } from '../Sidebar/Sidebar';
+import { AppBar, IconButton, Toolbar } from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
 
 const drawerWidth = 240;
 
@@ -36,8 +38,6 @@ const useStyles = makeStyles((theme: Theme) =>
     drawerHeader: {
       display: 'flex',
       alignItems: 'center',
-      padding: theme.spacing(0, 1),
-      // necessary for content to be below app bar
       ...theme.mixins.toolbar,
       justifyContent: 'flex-end',
     },
@@ -57,6 +57,15 @@ const useStyles = makeStyles((theme: Theme) =>
       }),
       marginLeft: 0,
     },
+    main: {
+      height: '100vh',
+      width: '100%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: theme.spacing(2),
+    },
+
   }),
 );
 
@@ -70,9 +79,24 @@ export default function PersistentDrawerLeft({children}: PersistentDrawerLeftPro
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBarTop/>
+      <AppBar
+      className={classes.appBarShift}
+        position="fixed"
+        >
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" noWrap>
+            Persistent drawer
+          </Typography>
+        </Toolbar>
+      </AppBar>
       <Sidebar/>
-      <main className='main'>
+      <main className={classes.main}>
         <div className={classes.drawerHeader} />
         {children}
       </main>
