@@ -3,7 +3,7 @@ import { IWorkouts } from '../types/workouts'
 
 
 const workouts: IWorkouts[] = [
-  
+
 ]
 
 export const WorkoutsPage = () => {
