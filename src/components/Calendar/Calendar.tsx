@@ -1,11 +1,7 @@
 import React from 'react'
-import CalendarCell from './CalendarCell'
+import { ICalendarDay } from '../../types/Calendar'
 import CalendarCol from './CalendarCol'
 
-export interface ICalendarDay {
-  date: Date,
-  check: boolean
-}
 
 const days: ICalendarDay[] = [
   {

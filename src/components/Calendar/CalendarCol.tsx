@@ -1,13 +1,8 @@
 import React from 'react'
-import { ICalendarDay } from './Calendar'
+import { ICalendarCol } from '../../types/Calendar'
 import CalendarCell from './CalendarCell'
 
 
-
-export interface ICalendarCol {
-  x: number,
-  days?: ICalendarDay[]
-}
 
 const getY = (id: number, margin: number): number => id * margin
 
