@@ -1,53 +1,64 @@
+import { createStyles, makeStyles, Theme } from '@material-ui/core'
 import React from 'react'
-import { ICalendarDay } from '../../types/Calendar'
+import { useFillCalendar } from '../../hooks/useFillCalendar'
+import { ICalendarDay, IDoneWorkouts } from '../../types/Calendar'
+import { formatDateToUs } from '../../utilits/formatDateToUs'
 import CalendarCol from './CalendarCol'
 
 
-const days: ICalendarDay[] = [
+const testIventsArray: IDoneWorkouts[] = [
   {
-    date: new Date(),
-    check: true
+    id: 1124566,
+    date: formatDateToUs(new Date(2021, 6, 1)),
+    woukoutType: 1,
+    rating: 'normally'
   },
   {
-    date: new Date(),
-    check: true
+    id: 2345,
+    date: formatDateToUs(new Date(2021, 7, 4)),
+    woukoutType: 1,
+    rating: 'well'
   },
   {
-    date: new Date(),
-    check: false
+    id: 3423,
+    date: formatDateToUs(new Date(2021, 1, 2)),
+    woukoutType: 1,
+    rating: 'badly'
   },
   {
-    date: new Date(),
-    check: false
+    id: 42345,
+    date: formatDateToUs(new Date(2020, 12, 1)),
+    woukoutType: 1,
+    rating: 'great'
   },
   {
-    date: new Date(),
-    check: true
+    id: 523,
+    date: formatDateToUs(new Date(2020, 11, 5)),
+    woukoutType: 1,
+    rating: 'normally'
   },
-  {
-    date: new Date(),
-    check: false
-  },
-  {
-    date: new Date(),
-    check: false
-  }
 ]
+
+
+const useStyles = makeStyles((theme: Theme) => 
+  createStyles({
+    root: {
+      width: '100%',
+    },
+  })
+)
 
 
 
 
 export const Calendar = () => {
-  const year = 365 / 7
-  const array = new Array(Math.floor(year)).fill(1)
-
-
+  const classes = useStyles()
+  const days = useFillCalendar(testIventsArray)
+  
   return (
-    <svg>
+    <svg className={classes.root}>
       {
-        array.map((_, i) => (
-          <CalendarCol days={days} x={i * 20}/>
-        ))
+        days.map((el, i) => <CalendarCol key={i} days={el} x={i * 15}/> )
       }
     </svg>
   )

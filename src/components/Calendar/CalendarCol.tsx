@@ -10,17 +10,19 @@ const getY = (id: number, margin: number): number => id * margin
 
 const CalendarCol = ({x, days}: ICalendarCol) => {
   const width = 10
-  const margin = 20
+  const margin = 15
 
   return (
     <g>
-      { days?.map(({date, check}, id) => {
+      { days?.map(({date, check, workouts}, id) => {
         return <CalendarCell  
+          key={id}
           width={width} 
           date={date} 
           check={check} 
           x={x} 
           y={getY(id, margin)}
+          workouts={workouts}
         /> 
       })
       }

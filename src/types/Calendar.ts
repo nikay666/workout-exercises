@@ -20,24 +20,26 @@ export interface ICalendarCell {
   width: number,
   x: number,
   y: number,
-  date: Date,
-  exercise?: object
+  date: string,
+  workouts?: Array<IDoneWorkouts>
 }
 
 export interface ICalendarCol {
   x: number,
-  days?: ICalendarDay[]
+  days?: ICalendarDay[],
 }
 
 
 export interface ICalendarDay {
-  date: Date,
-  check: boolean
+  id: number,
+  date: string,
+  check: boolean,
+  workouts?: Array<IDoneWorkouts>
 }
 
-interface IDoneWorkouts {
+export interface IDoneWorkouts {
   id: number,
-  date: Date,
+  date: string,
   woukoutType: number,
   rating: Rating
 }

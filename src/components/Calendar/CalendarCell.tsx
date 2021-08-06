@@ -9,8 +9,7 @@ const useStyles = makeStyles((theme: Theme) =>
       fill: theme.palette.primary.main,
       rx: 2,
       ry: 2,
-      width: '15px',
-      height: '15px',
+  
       boxShadow: theme.shadows[3],
       cursor: 'pointer'
     },
@@ -21,12 +20,14 @@ const useStyles = makeStyles((theme: Theme) =>
 )
 
 
-const CalendarCell = ({check, x, y, width, date, exercise}: ICalendarCell) => {
+const CalendarCell = ({check, x, y, width, date, workouts}: ICalendarCell) => {
   const classes = useStyles()
 
   const mouseOverHadlere = (e: React.MouseEvent<SVGRectElement>) => {
     console.log( e.currentTarget.dataset.date)
+    console.log( e.currentTarget.dataset.date)
   }
+
 
   return (
     <rect 
@@ -36,8 +37,8 @@ const CalendarCell = ({check, x, y, width, date, exercise}: ICalendarCell) => {
       className={`${classes.root} ${!check && classes.empty}`} 
       x={x} 
       y={y} 
-      data-count={exercise || 0}
-      onMouseOver={mouseOverHadlere}
+      data-count={workouts?.length || 0}
+      onClick={mouseOverHadlere}
     />
   )
 }
