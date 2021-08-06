@@ -1,8 +1,9 @@
 import { createStyles, makeStyles, Theme } from '@material-ui/core'
 import React from 'react'
-import { useFillCalendar } from '../../hooks/useFillCalendar'
-import { ICalendarDay, IDoneWorkouts } from '../../types/Calendar'
-import { formatDateToUs } from '../../utilits/formatDateToUs'
+import { useMemo } from 'react'
+import { fillCalendar } from '../../hooks/useFillCalendar'
+import { IDoneWorkouts } from '../../types/Calendar'
+import { formatDateToUs } from '../../utilits/DateFormatter'
 import CalendarCol from './CalendarCol'
 
 
@@ -53,8 +54,8 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export const Calendar = () => {
   const classes = useStyles()
-  const days = useFillCalendar(testIventsArray)
-  
+  const days =  useMemo(() => fillCalendar(testIventsArray), [testIventsArray])
+
   return (
     <svg className={classes.root}>
       {

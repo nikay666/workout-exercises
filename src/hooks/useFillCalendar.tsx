@@ -1,8 +1,8 @@
 import { ICalendarDay, IDoneWorkouts } from "../types/Calendar"
-import { formatDateToUs } from "../utilits/formatDateToUs"
+import { formatDateToUs } from "../utilits/DateFormatter"
 
 
-export const useFillCalendar = (workoutsArray: IDoneWorkouts[])=> {
+export const fillCalendar = (workoutsArray: IDoneWorkouts[])=> {
   const yearCout = 364
   const YearMs = 31536000000
   const today =  new Date()
@@ -16,20 +16,19 @@ export const useFillCalendar = (workoutsArray: IDoneWorkouts[])=> {
   }))
 
   const fillCalendar = (year: ICalendarDay[], workouts: IDoneWorkouts[] ): ICalendarDay[] => {
-    for (let i = 0; i < year.length; i++) {
-      const day = year[i];
-      for (let j = 0; j < workouts.length; j++) {
-        const workout = workouts[j];
-        if (day.date === workout.date){
-           day.workouts?.push(workout) 
-           day.check = true
-         }
+    const result =  year.map(day => {
+      const workout = workouts.find(({date}) => {return date === day.date})
+      if(workout){
+        day.workouts?.push(workout) 
+        day.check = true
       }
-    }
-    return year
-   }
+      return day
+    })
+    return result
+  }
+
    
-   const createColumns = (workouts: IDoneWorkouts[]) => {
+  const createColumns = (workouts: IDoneWorkouts[]) => {
     let arr:ICalendarDay[] = []
     const result: Array<ICalendarDay[]> = []
     const fillYear = fillCalendar(ArrayYearDays, workouts )
