@@ -15,6 +15,9 @@ const useStyles = makeStyles((theme: Theme) =>
     icon: {
       marginRight: theme.spacing(1)
     },
+    activeLink: { 
+      backgroundColor: theme.palette.primary.main
+    }
   
   })
 )
@@ -26,9 +29,14 @@ export const SidebarListItem = ({title, link, icon}:ISidebarListItemProps) => {
   const renderLink = React.useMemo(
     () =>
       React.forwardRef<any, Omit<NavLinkProps, 'to'>>((itemProps, ref) => (
-        <NavLink to={link} ref={ref} {...itemProps} />
+        <NavLink 
+          to={link} 
+          ref={ref} 
+          {...itemProps } 
+          activeClassName={classes.activeLink}
+        />
       )),
-    [link],
+    [link, classes.activeLink],
   );
 
   

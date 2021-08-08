@@ -4,7 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import { AppBarTop } from '../AppBarTop/AppBarTop';
 import { Sidebar } from '../Sidebar/Sidebar';
-import { AppBar, IconButton, Toolbar } from '@material-ui/core';
+import { AppBar, Container, IconButton, Toolbar } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 
 const drawerWidth = 240;
@@ -64,42 +64,44 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: 'center',
       justifyContent: 'center',
       padding: theme.spacing(2),
+
     },
 
   }),
 );
 
 interface PersistentDrawerLeftProps {
-  children: React.ReactNode
+  children: React.ReactNode,
 }
 
 export default function PersistentDrawerLeft({children}: PersistentDrawerLeftProps) {
   const classes = useStyles();
 
+
   return (
     <div className={classes.root}>
       <CssBaseline />
+      <Sidebar/>
       <AppBar
       className={classes.appBarShift}
         position="fixed"
-        >
-        <Toolbar>
-          <IconButton
+      >
+       <Toolbar>
+          {/* <IconButton
             color="inherit"
             aria-label="open drawer"
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
           <Typography variant="h6" noWrap>
-            Persistent drawer
+            hello
           </Typography>
         </Toolbar>
       </AppBar>
-      <Sidebar/>
       <main className={classes.main}>
-        <div className={classes.drawerHeader} />
         {children}
       </main>
+  
     </div>
   );
 }
