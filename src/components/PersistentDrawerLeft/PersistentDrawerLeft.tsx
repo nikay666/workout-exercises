@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
@@ -6,6 +6,8 @@ import { AppBarTop } from '../AppBarTop/AppBarTop';
 import { Sidebar } from '../Sidebar/Sidebar';
 import { AppBar, Container, IconButton, Toolbar } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
+import { IMenuItem } from '../../types/Menu';
+import { useHistory, useLocation, useRouteMatch } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -72,11 +74,19 @@ const useStyles = makeStyles((theme: Theme) =>
 
 interface PersistentDrawerLeftProps {
   children: React.ReactNode,
+  titles: IMenuItem[]
 }
 
-export default function PersistentDrawerLeft({children}: PersistentDrawerLeftProps) {
+export default function PersistentDrawerLeft({children, titles}: PersistentDrawerLeftProps) {
   const classes = useStyles();
+  const location = useLocation()
+  const [title, setTitle] = useState('')
 
+  useEffect(() => {
+    titles.forEach(item => {
+      item.link === location.pathname && setTitle(item.title)
+    }, [])
+  })
 
   return (
     <div className={classes.root}>
@@ -87,21 +97,14 @@ export default function PersistentDrawerLeft({children}: PersistentDrawerLeftPro
         position="fixed"
       >
        <Toolbar>
-          {/* <IconButton
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton> */}
-          <Typography variant="h6" noWrap>
-            hello
+          <Typography variant="h5" noWrap>
+            {title}
           </Typography>
         </Toolbar>
       </AppBar>
       <main className={classes.main}>
         {children}
       </main>
-  
     </div>
   );
 }

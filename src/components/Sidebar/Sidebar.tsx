@@ -7,53 +7,8 @@ import { Badge, createStyles, List, makeStyles, Theme, Typography } from '@mater
 import Divider from '@material-ui/core/Divider'
 import Avatar from '@material-ui/core/Avatar'
 import { SidebarListItem } from './SidebarListItem';
+import { menuItems } from '../../App';
 
-
-interface IMenuItem {
-  id: number,
-  title: string,
-  link: string,
-  icon: string,
-}
-
-export const menuItems: IMenuItem[] = [
-  {
-    id: 0,
-    title: 'Home Page',
-    link: '/home',
-    icon: 'home',
-  },
-  {
-    id: 1,
-    title: 'Calendar',
-    link: '/calendar',
-    icon: 'date_range'
-  },
-  {
-    id: 2,
-    title: 'Timer',
-    link: '/timer',
-    icon: 'timer'
-  },
-  {
-    id: 3,
-    title: 'Workouts list',
-    link: '/workouts',
-    icon: 'fitness_center'
-  },
-  {
-    id: 4,
-    title: 'Exercises list',
-    link: '/exercises',
-    icon: 'format_list_bulleted'
-  },
-  {
-    id: 5,
-    title: 'Settings',
-    link: '/settings',
-    icon: 'settings'
-  }
-]
 
 const drawerWidth = 240;
 
