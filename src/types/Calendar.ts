@@ -7,11 +7,11 @@ import MoodBadIcon from '@material-ui/icons/MoodBad';
 type Rating = 'great'  | 'well' | 'normally' | 'badly' | 'terrible'
 
 export enum RatingEmoji {
-  'great' = 'Mood',
-  'well' = 'SentimentSatisfied',
-  'normally' = 'SentimentDissatisfied',
-  'badly' = 'SentimentVeryDissatisfied',
-  'terrible' = 'MoodBad'
+  'great' = 'mood',
+  'well' = 'sentiment_satisfied',
+  'normally' = 'sentiment_dissatisfied',
+  'badly' = 'sentiment_very_dissatisfied',
+  'terrible' = 'mood_bad'
 
 }
 
