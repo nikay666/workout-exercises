@@ -1,9 +1,11 @@
-import {  SvgIcon, Typography, Stepper, Step, StepLabel, StepContent, makeStyles, createStyles, Theme, Button, Chip, List, ListItem, Divider, ListItemSecondaryAction, Icon } from '@material-ui/core'
+import {  Typography } from '@material-ui/core'
 import React from 'react'
 import { Calendar } from '../components/Calendar'
 import { IDoneWorkouts } from '../types/Calendar';
 import { CalendarList } from '../components/CalendarList';
 import { formatDateToUs } from '../utilits/DateFormatter';
+
+
 
 
 const testIventsArray: IDoneWorkouts[] = [
@@ -37,6 +39,13 @@ const testIventsArray: IDoneWorkouts[] = [
   },
   {
     id: 523,
+    date: formatDateToUs(new Date(2020, 11, 5)),
+    workoutTitle: 'boobs and arms',
+    workoutType: 'boobs-and-arms',
+    rating: 'normally'
+  },
+  {
+    id: 543,
     date: formatDateToUs(new Date(2020, 11, 5)),
     workoutTitle: 'boobs and arms',
     workoutType: 'boobs-and-arms',

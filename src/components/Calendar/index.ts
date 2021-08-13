@@ -1,1 +1,1 @@
-export {Calendar as Calendar} from './Calendar'
+export {Calendar} from './Calendar'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { createStyles, Icon, List, ListItem, ListItemText, makeStyles, Theme } from '@material-ui/core';
+import { createStyles, Icon, ListItem, ListItemText, makeStyles, Theme } from '@material-ui/core';
 import { NavLink, NavLinkProps } from 'react-router-dom';
 import './sidebar.scss'
 

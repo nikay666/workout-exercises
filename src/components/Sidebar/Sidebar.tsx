@@ -1,8 +1,5 @@
 import React from 'react'
 import Drawer from '@material-ui/core/Drawer';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton'
-import Paper from '@material-ui/core/Paper'
 import { Badge, createStyles, List, makeStyles, Theme, Typography } from '@material-ui/core';
 import Divider from '@material-ui/core/Divider'
 import Avatar from '@material-ui/core/Avatar'

@@ -3,7 +3,6 @@ import React from 'react'
 import { useMemo } from 'react'
 import { fillCalendar } from '../../hooks/useFillCalendar'
 import { IDoneWorkouts } from '../../types/Calendar'
-import { formatDateToUs } from '../../utilits/DateFormatter'
 import CalendarCol from './CalendarCol'
 
 

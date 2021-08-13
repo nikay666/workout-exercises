@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { makeStyles, useTheme, Theme, createStyles } from '@material-ui/core/styles';
+import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
-import { AppBarTop } from '../AppBarTop/AppBarTop';
 import { Sidebar } from '../Sidebar/Sidebar';
-import { AppBar, Container, IconButton, Toolbar } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
+import { AppBar, Toolbar } from '@material-ui/core';
 import { IMenuItem } from '../../types/Menu';
-import { useHistory, useLocation, useRouteMatch } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const drawerWidth = 240;
 
