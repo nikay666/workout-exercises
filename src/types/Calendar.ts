@@ -37,9 +37,12 @@ export interface ICalendarDay {
   workouts?: Array<IDoneWorkouts>
 }
 
+
+
 export interface IDoneWorkouts {
   id: number,
   date: string,
-  woukoutType: number,
+  workoutTitle: string,
+  workoutType: string,
   rating: Rating
 }

@@ -10,31 +10,36 @@ const testIventsArray: IDoneWorkouts[] = [
   {
     id: 1124566,
     date: formatDateToUs(new Date(2021, 6, 1)),
-    woukoutType: 1,
+    workoutTitle: 'boobs and arms',
+    workoutType: 'boobs-and-arms',
     rating: 'normally'
   },
   {
     id: 2345,
     date: formatDateToUs(new Date(2021, 7, 4)),
-    woukoutType: 1,
+    workoutTitle: 'legs-and-core',
+    workoutType: 'legs and core',
     rating: 'well'
   },
   {
     id: 3423,
     date: formatDateToUs(new Date(2021, 1, 2)),
-    woukoutType: 1,
+    workoutTitle: 'streaching 1',
+    workoutType: 'streaching-1',
     rating: 'badly'
   },
   {
     id: 42345,
     date: formatDateToUs(new Date(2020, 12, 1)),
-    woukoutType: 1,
+    workoutTitle: 'yoga relax',
+    workoutType: 'yoga-relax',
     rating: 'great'
   },
   {
     id: 523,
     date: formatDateToUs(new Date(2020, 11, 5)),
-    woukoutType: 1,
+    workoutTitle: 'boobs and arms',
+    workoutType: 'boobs-and-arms',
     rating: 'normally'
   },
 ]

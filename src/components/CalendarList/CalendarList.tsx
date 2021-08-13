@@ -14,7 +14,12 @@ export const CalendarList = ({doneWorkouts}:ICalendarListProps) => {
   return (
   <Stepper orientation='vertical'>
     {
-      doneWorkouts.map(workout => <CalendarListItem key={workout.id}/>)
+      doneWorkouts.map((workout) => (
+        <CalendarListItem 
+          key={workout.id}
+          {...workout}
+        />
+      ))
       
     }
   </Stepper>

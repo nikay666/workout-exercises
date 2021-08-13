@@ -1,6 +1,6 @@
 import { Icon, Theme, List, ListItem, Step, StepContent, StepLabel, ListItemSecondaryAction, makeStyles, createStyles, Button } from '@material-ui/core'
 import React from 'react'
-import { RatingEmoji } from '../../types/Calendar'
+import { IDoneWorkouts, RatingEmoji } from '../../types/Calendar'
 import Brightness1Icon from '@material-ui/icons/Brightness1';
 import { Link } from 'react-router-dom';
 
@@ -21,24 +21,24 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     chip: {
       marginLeft: theme.spacing(1)
-    }
+    },
   }))
 )
 
 
-export const CalendarListItem = () => {
+export const CalendarListItem = ({id, date, workoutType, workoutTitle ,rating}: IDoneWorkouts) => {
   const classes = useStyles()
 
 
   return (
     <Step active={true}>
-           <StepLabel className={classes.stepIcon} StepIconComponent={Brightness1Icon} >6 march 2020</StepLabel>
+           <StepLabel className={classes.stepIcon} StepIconComponent={Brightness1Icon} >{date}</StepLabel>
            <StepContent>
              <List className={classes.list}>
              <ListItem>
-               <Button size='small' color='primary'  className={classes.link} component={Link} to='/timer'>Workout 'cheast and boobbs'</Button>
+               <Button size='small' color='primary'  className={classes.link} component={Link} to={`/${workoutType}`}>{workoutTitle}</Button>
                 <ListItemSecondaryAction>
-                <Icon color='primary'>{RatingEmoji.well}</Icon>
+                <Icon color='primary' >{RatingEmoji[rating]}</Icon>
                 </ListItemSecondaryAction>
                </ListItem>
              </List>
