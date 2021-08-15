@@ -39,6 +39,7 @@ export interface ICalendarDay {
 
 
 export interface IDoneWorkoutsByDates {
+  id: number,
   date: string,
   workouts: IDoneWorkouts[]
 }

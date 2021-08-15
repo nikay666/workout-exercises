@@ -1,9 +1,10 @@
-import {  Typography } from '@material-ui/core'
+import {  Stepper, Typography } from '@material-ui/core'
 import React from 'react'
 import { Calendar } from '../components/Calendar'
-import { IDoneWorkouts } from '../types/Calendar';
+import { IDoneWorkouts, IDoneWorkoutsByDates } from '../types/Calendar';
 import { CalendarList } from '../components/CalendarList';
 import { formatDateToUs } from '../utilits/DateFormatter';
+import { Step, StepLabel, StepContent } from '@material-ui/core';
 
 
 
@@ -53,18 +54,49 @@ const testIventsArray: IDoneWorkouts[] = [
   },
 ]
 
+const testIventsArrayDates: IDoneWorkoutsByDates[] = [
+  {
+    id: 12345123,
+    date: `${formatDateToUs(new Date(2021, 6, 1))}`,
+    workouts: [{
+    id: 1124566,
+    date: formatDateToUs(new Date(2021, 6, 1)),
+    workoutTitle: 'boobs and arms',
+    workoutType: 'boobs-and-arms',
+    rating: 'normally'
+    }]
+  },
+  {
+    id: 12345,
+    date: `${formatDateToUs(new Date(2020, 11, 5))}`,
+    workouts: [
+      {
+        id: 1124566,
+        date: formatDateToUs(new Date(2021, 6, 1)),
+        workoutTitle: 'boobs and arms',
+        workoutType: 'boobs-and-arms',
+        rating: 'normally'
+      },
+      {
+        id: 543,
+        date: formatDateToUs(new Date(2020, 11, 5)),
+        workoutTitle: 'boobs and arms',
+        workoutType: 'boobs-and-arms',
+        rating: 'normally'
+      },
+    ]
+  }
+
+]
 
 
 const CalendarPage = () => {
-
-
   return (
     <div className='calendar'>
       <Typography component='h1' variant='h2' >Календарь акивности</Typography>
       <Calendar doneWorkouts={testIventsArray} />
       <Typography component='h2' variant='h6'>Активности</Typography>
-      <CalendarList doneWorkouts={testIventsArray} />
-
+      <CalendarList doneWorkouts={testIventsArrayDates} />
     </div>
   )
 }

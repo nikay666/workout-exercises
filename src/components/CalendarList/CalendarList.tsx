@@ -1,27 +1,29 @@
-import { Stepper } from '@material-ui/core'
+import { List } from '@material-ui/core'
 import React from 'react'
-import { IDoneWorkouts } from '../../types/Calendar'
+import { IDoneWorkoutsByDates } from '../../types/Calendar'
 import { CalendarListItem } from './CalendarListItem'
 
 
 interface ICalendarListProps {
-  doneWorkouts: IDoneWorkouts[]
+  doneWorkouts: IDoneWorkoutsByDates[]
 }
 
 export const CalendarList = ({doneWorkouts}:ICalendarListProps) => {
   
 
   return (
-  <Stepper orientation='vertical'>
+  <List >
     {
       doneWorkouts.map((workout) => (
         <CalendarListItem 
+          id={workout.id}
           key={workout.id}
-          {...workout}
+          date={workout.date}
+          workouts={workout.workouts}
         />
       ))
       
     }
-  </Stepper>
+  </List>
   )
 }
