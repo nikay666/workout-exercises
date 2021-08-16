@@ -1,10 +1,10 @@
-import {  Stepper, Typography } from '@material-ui/core'
+import {  Typography } from '@material-ui/core'
 import React from 'react'
 import { Calendar } from '../components/Calendar'
 import { IDoneWorkouts, IDoneWorkoutsByDates } from '../types/Calendar';
 import { CalendarList } from '../components/CalendarList';
 import { formatDateToUs } from '../utilits/DateFormatter';
-import { Step, StepLabel, StepContent } from '@material-ui/core';
+;
 
 
 
@@ -88,6 +88,7 @@ const testIventsArrayDates: IDoneWorkoutsByDates[] = [
   }
 
 ]
+
 
 
 const CalendarPage = () => {

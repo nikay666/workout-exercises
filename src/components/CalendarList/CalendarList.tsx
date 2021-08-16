@@ -22,7 +22,6 @@ export const CalendarList = ({doneWorkouts}:ICalendarListProps) => {
           workouts={workout.workouts}
         />
       ))
-      
     }
   </List>
   )

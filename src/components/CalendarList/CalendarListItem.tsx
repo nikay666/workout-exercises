@@ -1,6 +1,6 @@
 import { Theme, List, ListItem,  makeStyles, createStyles, ListSubheader, Divider } from '@material-ui/core'
 import React from 'react'
-import { IDoneWorkoutsByDates, RatingEmoji } from '../../types/Calendar'
+import { IDoneWorkoutsByDates } from '../../types/Calendar'
 import Brightness1Icon from '@material-ui/icons/Brightness1';
 import { CalendarListSubItem } from './CalendarListSubItem';
 

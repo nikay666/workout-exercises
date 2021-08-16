@@ -1,7 +1,7 @@
 import { createStyles, makeStyles, Theme } from '@material-ui/core'
 import React from 'react'
 import { useMemo } from 'react'
-import { fillCalendar } from '../../hooks/useFillCalendar'
+import { fillCalendar } from '../../utilits/fillCalendar'
 import { IDoneWorkouts } from '../../types/Calendar'
 import CalendarCol from './CalendarCol'
 

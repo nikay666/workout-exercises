@@ -1,9 +1,3 @@
-import MoodIcon from '@material-ui/icons/Mood';
-import SentimentSatisfiedIcon from '@material-ui/icons/SentimentSatisfied';
-import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied';
-import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied';
-import MoodBadIcon from '@material-ui/icons/MoodBad';
-
 type Rating = 'great'  | 'well' | 'normally' | 'badly' | 'terrible'
 
 export enum RatingEmoji {

@@ -1,5 +1,5 @@
 import { ICalendarDay, IDoneWorkouts } from "../types/Calendar"
-import { formatDateToUs } from "../utilits/DateFormatter"
+import { formatDateToUs } from "./DateFormatter"
 
 
 export const fillCalendar = (workoutsArray: IDoneWorkouts[])=> {
@@ -7,6 +7,7 @@ export const fillCalendar = (workoutsArray: IDoneWorkouts[])=> {
   const YearMs = 31536000000
   const today =  new Date()
   const yearAgo =  new Date(today.valueOf() - YearMs)
+
 
   const ArrayYearDays: ICalendarDay[] = new Array(yearCout).fill(1).map((_, i) => ({
     id: i, 
@@ -17,6 +18,7 @@ export const fillCalendar = (workoutsArray: IDoneWorkouts[])=> {
 
   const fillCalendar = (year: ICalendarDay[], workouts: IDoneWorkouts[] ): ICalendarDay[] => {
     const result =  year.map(day => {
+      
       const workout = workouts.find(({date}) => {return date === day.date})
       if(workout){
         day.workouts?.push(workout) 
