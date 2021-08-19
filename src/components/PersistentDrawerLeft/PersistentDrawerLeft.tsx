@@ -6,57 +6,16 @@ import { Sidebar } from '../Sidebar/Sidebar';
 import { AppBar, Toolbar } from '@material-ui/core';
 import { IMenuItem } from '../../types/Menu';
 import { useLocation } from 'react-router-dom';
+import { DRAWER_WIDTH } from '../../utilits/constants';
+import { TopAppBar } from '../AppBar/TopAppBar';
 
-const drawerWidth = 240;
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       display: 'flex',
     },
-    appBar: {
-      transition: theme.transitions.create(['margin', 'width'], {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-      }),
-    },
-    appBarShift: {
-      width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
-      transition: theme.transitions.create(['margin', 'width'], {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
-    hide: {
-      display: 'none',
-    },
 
-    drawerHeader: {
-      display: 'flex',
-      alignItems: 'center',
-      ...theme.mixins.toolbar,
-      justifyContent: 'flex-end',
-    },
-    content: {
-      flexGrow: 1,
-      padding: theme.spacing(3),
-      transition: theme.transitions.create('margin', {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-      }),
-      marginLeft: -drawerWidth,
-    },
-    contentShift: {
-      transition: theme.transitions.create('margin', {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-      marginLeft: 0,
-    },
     main: {
       height: '100vh',
       width: '100%',
@@ -90,16 +49,7 @@ export default function PersistentDrawerLeft({children, titles}: PersistentDrawe
     <div className={classes.root}>
       <CssBaseline />
       <Sidebar/>
-      <AppBar
-      className={classes.appBarShift}
-        position="fixed"
-      >
-       <Toolbar>
-          <Typography variant="h5" noWrap>
-            {title}
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      <TopAppBar title={title} />
       <main className={classes.main}>
         {children}
       </main>
