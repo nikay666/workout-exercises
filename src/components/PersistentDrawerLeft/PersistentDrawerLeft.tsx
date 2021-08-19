@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
 import { Sidebar } from '../Sidebar/Sidebar';
-import { AppBar, Toolbar } from '@material-ui/core';
 import { IMenuItem } from '../../types/Menu';
 import { useLocation } from 'react-router-dom';
-import { DRAWER_WIDTH } from '../../utilits/constants';
 import { TopAppBar } from '../AppBar/TopAppBar';
 
 
@@ -15,7 +12,6 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       display: 'flex',
     },
-
     main: {
       height: '100vh',
       width: '100%',
@@ -23,9 +19,7 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: 'center',
       justifyContent: 'center',
       padding: theme.spacing(2),
-
     },
-
   }),
 );
 

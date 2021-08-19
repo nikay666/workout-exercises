@@ -18,8 +18,8 @@ const useStyles = makeStyles((theme: Theme) =>
         easing: theme.transitions.easing.easeOut,
         duration: theme.transitions.duration.enteringScreen,
       }),
-    }}
-    )
+    }
+  })
 )
 
 interface ITopAppBarProps {
@@ -32,13 +32,13 @@ export const TopAppBar = ({title}: ITopAppBarProps) => {
   return (
     <AppBar
       className={classes.appBarShift}
-        position="fixed"
-      >
-       <Toolbar>
-          <Typography variant="h5" noWrap>
-            {title}
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      position="fixed"
+    >
+      <Toolbar>
+        <Typography variant="h5" noWrap>
+          {title}
+        </Typography>
+      </Toolbar>
+    </AppBar>
   )
 }

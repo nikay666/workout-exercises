@@ -33,13 +33,14 @@ export const SelectTime = ({changeHandler}: SelectTimeProps) => {
     <div className="timer__select-time">
     <h2>Select time:</h2>
 
-    <form id="form" name="form" className="timer__form" onSubmit={submitHandler} >
+    <form id="form"  name="form" className="timer__form" onSubmit={submitHandler} >
       <div className="timer__inputs">
         <TextField 
           className="timer__input" 
           type="number" 
           label="Minutes"
-          name="" 
+          name="minutes" 
+          id="minutes" 
           variant="outlined"
           value={min}
           onChange={minutesHandler}
@@ -48,7 +49,8 @@ export const SelectTime = ({changeHandler}: SelectTimeProps) => {
           className="timer__input" 
           type="number" 
           label="Seconds"
-          name="" 
+          name="seconds" 
+          id="seconds" 
           variant="outlined"
           value={sec}
           onChange={secondsHandler}
