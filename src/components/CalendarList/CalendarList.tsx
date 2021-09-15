@@ -16,10 +16,8 @@ export const CalendarList = ({doneWorkouts}:ICalendarListProps) => {
     {
       doneWorkouts.map((workout) => (
         <CalendarListItem 
-          id={workout.id}
           key={workout.id}
-          date={workout.date}
-          workouts={workout.workouts}
+          {...workout}
         />
       ))
     }

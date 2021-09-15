@@ -11,7 +11,9 @@ import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 
 
 
-
+const getProgressValue = (startTime: number, time: number): number => {
+  return ((startTime - time) / startTime * 100 ) + startTime / 100
+}
 const Timer = () => {
   const [time, setTime] = useState(0)
   const [startTime, setStartTime] = useState(0)
@@ -41,34 +43,38 @@ const Timer = () => {
   }, [startTime, time, stop, pause])
 
   const selectHndler = (num: number) => {
+    console.log(num)
     setStartTime(num)
     setTime(num)
+    setStop(false)
+    setProgress(0)
   }
 
-  const pauseHandler = () => setPause(!pause)
+  const pauseHandler = () => setPause(prev => !prev)
   const stopHandler = () => setStop(true)
 
   return (
     <div className="timer">
         <SelectTime changeHandler={selectHndler} />
+
         <div className="timer__numbers">
           <span>{formatTime(minutes)}:</span><span>{formatTime(seconds)}</span>
           <ProgressRing radius={150} stroke={5} progress={progress} />
         </div>
+
         <div className="timer__buttons">
-        <Button  
-          onClick={pauseHandler}
-          type="submit" 
-          color="primary" 
-          disabled={time ? false : true}
-        >{pause ? <PlayArrowIcon fontSize="large" /> : <PauseIcon fontSize="large" />}</Button>
-        <Button 
-          
-          onClick={stopHandler} 
-          type="submit" 
-          color="primary" 
-          disabled={time ? false : true}
-         ><StopIcon fontSize="large" /></Button>
+          <Button  
+            onClick={pauseHandler}
+            type="submit" 
+            color="primary" 
+            disabled={time ? false : true}
+          >{pause ? <PlayArrowIcon fontSize="large" /> : <PauseIcon fontSize="large" />}Pause</Button>
+          <Button 
+            onClick={stopHandler} 
+            type="submit" 
+            color="primary" 
+            disabled={time ? false : true}
+          ><StopIcon fontSize="large" />Stop</Button>
         </div>
        
     </div>

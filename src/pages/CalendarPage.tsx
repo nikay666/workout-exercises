@@ -59,11 +59,11 @@ const testIventsArrayDates: IDoneWorkoutsByDates[] = [
     id: 12345123,
     date: `${formatDateToUs(new Date(2021, 6, 1))}`,
     workouts: [{
-    id: 1124566,
-    date: formatDateToUs(new Date(2021, 6, 1)),
-    workoutTitle: 'boobs and arms',
-    workoutType: 'boobs-and-arms',
-    rating: 'normally'
+      id: 1124566,
+      date: formatDateToUs(new Date(2021, 6, 1)),
+      workoutTitle: 'boobs and arms',
+      workoutType: 'boobs-and-arms',
+      rating: 'normally'
     }]
   },
   {

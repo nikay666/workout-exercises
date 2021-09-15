@@ -1,63 +1,56 @@
 import React from 'react'
 import { useState } from 'react'
 import { Button } from '@material-ui/core'
-import { TextField } from '@material-ui/core'
-import { checkTimeValue } from './TimerHelpers'
+import { getCalculateTime } from './TimerHelpers'
+import { TimerInputs } from './TimerInputs'
 
 interface SelectTimeProps {
-  changeHandler: Function
+  changeHandler: (value: number) => void,
 }
 
 export const SelectTime = ({changeHandler}: SelectTimeProps) => {
-  const [min, setMin] = useState(0)
-  const [sec, setSec] = useState(0)
+  const [min, setMin] = useState('')
+  const [sec, setSec] = useState('')
+  const [disabled, setDisabled] = useState(true)
 
-  const minutesHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault()
-    setMin(checkTimeValue(parseInt(e.target.value)))
+
+  const minutesHandler = (value: string) => {
+    parseInt(value) > 60 ?  setMin('0') :  setMin(value)
+    setDisabled(false)
   }
 
-  const secondsHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault()
-    setSec(checkTimeValue(parseInt(e.target.value)))
+  const secondsHandler = (value: string) => {
+    parseInt(value) > 60 ?  setSec('0') : setSec(value)
+    setDisabled(false)
   }
 
-  const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+  const submitHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
-    setMin(0)
-    setSec(0)
-    changeHandler(min * 60 + sec)
+    const value = getCalculateTime(min, sec)
+    changeHandler(value)
+    setMin('')
+    setSec('')
+    setDisabled(true)
   }
 
   return (
     <div className="timer__select-time">
     <h2>Select time:</h2>
-
-    <form id="form"  name="form" className="timer__form" onSubmit={submitHandler} >
-      <div className="timer__inputs">
-        <TextField 
-          className="timer__input" 
-          type="number" 
-          label="Minutes"
-          name="minutes" 
-          id="minutes" 
-          variant="outlined"
-          value={min}
-          onChange={minutesHandler}
-        />
-        <TextField 
-          className="timer__input" 
-          type="number" 
-          label="Seconds"
-          name="seconds" 
-          id="seconds" 
-          variant="outlined"
-          value={sec}
-          onChange={secondsHandler}
-        />
-      </div>
-      <Button type="submit" color="primary" variant="outlined">Start</Button>
-      </form>
+    <form id="form"  name="form" className="timer__form" >
+      <TimerInputs
+        minutes={min}
+        seconds={sec}
+        changeMinutes={minutesHandler}
+        changeSeconds={secondsHandler}
+      />
+      <Button 
+        onClick={submitHandler} 
+        type="submit" 
+        color="primary" 
+        variant="outlined"
+        disabled={disabled}
+      >Start</Button>
+    </form>
   </div>
   )
 }
